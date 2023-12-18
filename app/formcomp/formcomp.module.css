@@ -1,0 +1,26 @@
+.formContainer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+}
+.inp{
+    border: 2px solid rgb(92, 238, 184);
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+    background-color: black;
+    color: rgb(92, 238, 184);
+    text-align: center;
+}
+.inp::placeholder{
+    color: rgb(92, 238, 184);
+    text-align: center;
+}
+
+.butt{
+    border: none;
+    background-color: transparent;
+    height: 30px;
+    width: 30px;
+}

@@ -6,7 +6,21 @@
 .boxcontainer{
   display: flex;
   width: 100%;
-  height: 900px;
+  height: 1080px;
   justify-content: center;
   align-items: center;
+}
+.box{
+  display: flexbox;
+  width: 500px;
+  height: 700px;
+  background-color: white;
+  border-radius: 30px;
+
+  justify-content: center;
+  
+}
+.box h1{
+  color: black;
+  text-align: center;
 }
