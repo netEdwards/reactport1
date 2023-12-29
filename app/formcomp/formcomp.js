@@ -5,29 +5,54 @@ import { useState } from "react";
 import axios from "axios";
 import { BsSearch } from "react-icons/bs"
 import styles from "./formcomp.module.css"
+import Weather from "../weather/weather";
+import Spinner from "../Spinner";
+
 
 export default function SearchForm(){
 
   const [city, setCity] = useState('');
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const url = `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_KEY}&q=${city}&aqi=no`
 
-  const fetchWeather = (e) => {
+  const fetchWeather = async (e) => {
     e.preventDefault()
     setLoading(true)
-    axios.get(url).then((response) => {
+    try{
+      const response = await axios.get(url)
       setWeather(response.data)
-      console.log(response.data)
-    })
+    }catch (error) {
+      console.error(error)
+      setError(true)
+    }
+    finally{
+      setCity('')
+      setLoading(false)
+    }
+    
     setCity('')
     setLoading(false)
-    console.log(city)
   }
 
+  if(loading) {
+    return <Spinner/>
+  } else if(error) {
+    return(
+      <div className={styles.errorText}>
+        Error, check your search. Maybe a typo?
+        <button onClick={() => window.location.reload()}>
+          Refresh?
+        </button>
+      </div>
+    )
+  }
+  else{
     return(
         <div className={styles.formContainer}>
+          <div>
             <form onSubmit={fetchWeather} className={styles.formy}>
                 <div className={styles.second}>
                     <input type="text" placeholder="What city!?!?!?" onChange={(e) => setCity(e.target.value)} className={styles.inp}/>
@@ -36,7 +61,12 @@ export default function SearchForm(){
                     </button>
                 </div>
             </form>
+          </div>
+          {weather.current && <Weather data={weather}/>}
         </div>
+        
+        
     )
+  }
 
 }
