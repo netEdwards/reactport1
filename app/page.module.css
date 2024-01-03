@@ -1,5 +1,4 @@
 .main {
-  background-color: rgb(0, 0, 0);
   color: white;
 }
 
@@ -23,4 +22,9 @@
 .box h1{
   color: black;
   text-align: center;
+}
+
+.bg{
+  float: left;
+  z-index: -1;
 }

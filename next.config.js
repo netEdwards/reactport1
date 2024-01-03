@@ -1,4 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {}
 
-module.exports = nextConfig
+const withFonts = require('next-fonts');
+
+module.exports = withFonts({
+  images: {
+    domains: ['images.unsplash.com'],
+  },
+  webpack(config, options) {
+    return config;
+  },
+});

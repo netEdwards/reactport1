@@ -43,8 +43,8 @@ export default function SearchForm(){
     return(
       <div className={styles.errorText}>
         Error, check your search. Maybe a typo?
-        <button onClick={() => window.location.reload()}>
-          Refresh?
+        <button className= {styles.rButt} onClick={() => window.location.reload()}>
+          <span className={styles.reload}>⟳</span>
         </button>
       </div>
     )
@@ -57,7 +57,7 @@ export default function SearchForm(){
                 <div className={styles.second}>
                     <input type="text" placeholder="What city!?!?!?" onChange={(e) => setCity(e.target.value)} className={styles.inp}/>
                     <button onClick={fetchWeather} className={styles.butt}>
-                    <BsSearch size={15} className={styles.icon}/>
+                    <BsSearch size={18} className={styles.icon}/>
                     </button>
                 </div>
             </form>

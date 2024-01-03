@@ -18,6 +18,9 @@
     color: rgb(92, 238, 184);
     text-align: center;
 }
+.inp:focus::placeholder{
+    color: transparent;
+}
 
 .butt{
     border: none;
@@ -25,7 +28,33 @@
     height: 30px;
     width: 30px;
 }
+
+.second{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icon{
+    margin-top: 10px;
+}
 .errorText{
     color: red;
     text-align: center;
+}
+.rButt{
+    border: none;
+    background: transparent;
+}
+.rButt:hover{
+    color: red;
+    cursor: pointer;
+}
+.reload{
+    color: greenyellow;
+    font-size: 20px;
+}
+.reload:hover{
+    cursor: pointer;
+    color: black;
+    font-weight: bolder;
 }
