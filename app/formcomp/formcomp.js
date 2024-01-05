@@ -16,7 +16,7 @@ export default function SearchForm(){
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const url = `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_KEY}&q=${city}&aqi=no`
+  const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_KEY}&q=${city}&aqi=no`
 
   const fetchWeather = async (e) => {
     e.preventDefault()
