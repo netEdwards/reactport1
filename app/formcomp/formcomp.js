@@ -7,6 +7,7 @@ import { BsSearch } from "react-icons/bs"
 import styles from "./formcomp.module.css"
 import Weather from "../weather/weather";
 import Spinner from "../Spinner";
+import InitialDisplay from "../intialdisplay/InitialDisplay";
 
 
 export default function SearchForm(){
@@ -15,15 +16,19 @@ export default function SearchForm(){
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  
 
   const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_KEY}&q=${city}&aqi=no`
 
   const fetchWeather = async (e) => {
     e.preventDefault()
     setLoading(true)
+    console.log(isSubmitted)
     try{
       const response = await axios.get(url)
       setWeather(response.data)
+      setIsSubmitted(true)
     }catch (error) {
       console.error(error)
       setError(true)
@@ -62,7 +67,8 @@ export default function SearchForm(){
                 </div>
             </form>
           </div>
-          {weather.current && <Weather data={weather}/>}
+          {isSubmitted === false ? <InitialDisplay/> : weather.current && <Weather data={weather}/>}
+          
         </div>
         
         
