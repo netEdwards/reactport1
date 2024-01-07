@@ -60,7 +60,7 @@ export default function SearchForm(){
           <div>
             <form onSubmit={fetchWeather} className={styles.formy}>
                 <div className={styles.second}>
-                    <input type="text" placeholder="What city!?!?!?" onChange={(e) => setCity(e.target.value)} className={styles.inp}/>
+                    <input type="text" placeholder="Enter a city" onChange={(e) => setCity(e.target.value)} className={styles.inp}/>
                     <button onClick={fetchWeather} className={styles.butt}>
                     <BsSearch size={18} className={styles.icon}/>
                     </button>
