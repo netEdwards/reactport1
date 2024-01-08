@@ -6,16 +6,16 @@
     flex-direction: column;
 }
 .inp{
-    border: 2px solid rgb(92, 238, 184);
+    border: 2px solid rgb(63, 214, 96);
     border-radius: 10px;
     width: 200px;
     height: 30px;
-    background-color: black;
+    background-color: transparent;
     color: rgb(92, 238, 184);
     text-align: center;
 }
 .inp::placeholder{
-    color: rgb(92, 238, 184);
+    color: rgb(0, 0, 0);
     text-align: center;
 }
 .inp:focus::placeholder{

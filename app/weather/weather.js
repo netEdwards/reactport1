@@ -1,7 +1,7 @@
 import { Fira_Sans } from "next/font/google"
 import styles from "./weather.module.css"
-import WeatherIcons from "../imageimports"
 import React from "react"
+import WeatherIcons from "../imageimports"
 
 
 const fira_sans = Fira_Sans({ 
@@ -14,14 +14,16 @@ const fira_sans = Fira_Sans({
 const Weather = ({data}) => {
     console.log(data)
 
-    const weatherIcons = new WeatherIcons();
+    const wi = new WeatherIcons();
 
     var condition = "";
     var icon;
 
     if (data.current.condition.text === "Sunny") {
         condition = "Sunny";
-        icon = weatherIcons.sunnyicon;
+        icon = wi.sunnyicon;
+    }else if (data.current.condition.text === "Partly cloudy") {
+
     }
 
     return (
@@ -36,7 +38,7 @@ const Weather = ({data}) => {
                  <div className={styles.condition}>
                     <p>{data.current.condition.text}</p>
                     <p>UV : {data.current.uv} </p>
-                    <p>Visibility : <br/>{data.current.vis_miles} milesAtla<br/> {data.current.vis_km} kilometers</p>
+                    <p>Visibility : <br/>{data.current.vis_miles} miles<br/>{data.current.vis_km} kilometers</p>
                  </div>
              </div>
             </div>

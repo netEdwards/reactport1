@@ -4,6 +4,7 @@ import styles from './page.module.css'
 // import WeatherIcons from './imageimports';
 import SearchForm from './formcomp/formcomp';
 import Weather from './weather/weather';
+import swlogo from '/public/media/swlogo.png';
 
 
 
@@ -27,8 +28,9 @@ export default function Home() {
       />
       <div className={styles.boxcontainer}>
         <div className={styles.box}>
-          <div>
-            <h1>Simple Weather</h1>
+          <div className={styles.hold}>
+            <Image className={styles.imglogo} src={swlogo} width={75} height={75} alt='displays logo "sW" '/>
+            {/* <h1>Simple Weather</h1> */}
           </div>
           <SearchForm/>
         </div>
